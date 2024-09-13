@@ -1,0 +1,111 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+} */
+
+@-webkit-keyframes rotating
+
+/* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+
+.modal-header {
+  background-color: #fc7540;
+  color: white;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.modal-header-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: "roboto-medium";
+  font-size: 13px;
+  font-weight: 500;
+  gap: 21px;
+  text-transform: uppercase;
+}
+
+.modal-children {
+  background-color: #f7f8fa;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  max-height: calc(100vh - 100px);
+  height: 100%;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+
+.custom-file-upload {
+  padding-left: 98px;
+  padding-right: 98px;
+  padding-top: 56px;
+  padding-bottom: 56px;
+  background-color: white;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-style: dashed;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.badge-color {
+  background-color: #fc7540 !important;
+  height: 20px;
+  width: 20px;
+}
+
+
