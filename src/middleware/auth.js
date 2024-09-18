@@ -44,44 +44,6 @@ export function loginUser(payload) {
   }
 }
 
-export function forgotPassword(payload, navigate) {
-  return (dispatch) => {
-    dispatch(forgotPasswordRequest())
-    AuthService.forgotPassword(payload)
-      .then((response) => {
-        const { status, data, message, error } = response.data
-        if (status === SUCCESS_STATUS_CODE) {
-          dispatch(forgotPasswordSuccess({ ...data, message }))
-          navigate(ROUTES_URL.RESET_PASSWORD)
-        } else {
-          dispatch(forgotPasswordError(error))
-        }
-      })
-      .catch((error) => {
-        dispatch(forgotPasswordError(error))
-      })
-  }
-}
-
-export function resetPassword(payload, navigate) {
-  return (dispatch) => {
-    dispatch(resetPasswordRequest())
-    AuthService.resetPassword(payload)
-      .then((response) => {
-        const { status, data, message, error } = response.data
-        if (status === SUCCESS_STATUS_CODE) {
-          dispatch(resetPasswordSuccess({ ...data, message }))
-          navigate(ROUTES_URL.LOGIN)
-        } else {
-          dispatch(resetPasswordError(error))
-        }
-      })
-      .catch((error) => {
-        dispatch(resetPasswordError(error))
-      })
-  }
-}
-
 export function logoutLoggedUser(navigate) {
   return (dispatch) => {
     dispatch(loginRequest())

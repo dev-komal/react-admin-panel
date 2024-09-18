@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
@@ -8,8 +9,8 @@ import configStore from './config/store'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
-import './i18n'
-
+import i18n from './i18n'
+i18n
 const store = configStore()
 
 const root = ReactDOM.createRoot(document.getElementById('root'))

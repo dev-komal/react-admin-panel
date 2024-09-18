@@ -2,12 +2,12 @@ html {
   scroll-behavior: smooth;
 }
 
-/* body {
+body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 } */

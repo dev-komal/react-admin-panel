@@ -15,7 +15,7 @@ function PasswordUpdate({ id }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  // const { updatePasswordValidation } = useAuthTranslations();
+  const { updatePasswordValidation } = useAuthTranslations();
   const { passwordError, updatePasswordLoading } = useSelector(
     (state) => state.auth,
   );
@@ -38,7 +38,7 @@ function PasswordUpdate({ id }) {
       new_password: "",
       confirm_password: "",
     },
-    // validationSchema: updatePasswordValidation,
+    validationSchema: updatePasswordValidation,
     onSubmit: handleSubmit,
   });
 

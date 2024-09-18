@@ -22,7 +22,7 @@ import { Toastify } from '../../config/toastify'
 import { GENERIC_ERROR_MESSAGE, LOGOUT_SUCCESS } from '../../config/constants'
 // import { useTranslation } from 'react-i18next'
 
-const Login = () => {
+const SignUp = () => {
   // const { t } = useTranslation()
   let navigate = useNavigate()
   const dispatch = useDispatch()
@@ -54,6 +54,7 @@ const Login = () => {
   const formik = useFormik({
     initialValues: {
       email: '',
+      username: '',
       password: '',
     },
     validationSchema: authValidation,
@@ -74,41 +75,41 @@ const Login = () => {
     >
       <Card
         sx={{
-          width: { xs: '100%', sm: '400px' },
-          mx: { xs: 1, sm: 0 },
+          width: '100%',
+          maxWidth: '400px',
+          p: 3,
         }}
       >
         <form onSubmit={formik.handleSubmit}>
           <Box
             sx={{
-              px: 3,
-              maxWidth: '100%',
+              px: 2,
             }}
           >
-            <Stack sx={{ mb: 3 }}>
+            <Stack spacing={3}>
               <Box>
                 <Typography
                   sx={{
                     fontFamily: 'poppins-regular',
                     fontSize: { xs: '20px', sm: '24px' },
                     color: 'secondary.main',
-                    marginTop: '24px',
-                    marginBottom: '12px',
+                    mt: 3,
+                    mb: 2,
                     textAlign: 'center',
                   }}
                 >
-                  Login
+                  Sign up
                 </Typography>
                 <Typography
                   sx={{
                     fontFamily: 'poppins-regular',
                     fontSize: { xs: '12px', sm: '14px' },
                     color: 'secondary.main',
-                    marginBottom: '24px',
+                    mb: 3,
                     textAlign: 'center',
                   }}
                 >
-                  Enter email and password to continue...
+                  Create an account to continue...
                 </Typography>
               </Box>
               <Typography sx={{ color: 'red', fontSize: '12px', my: '10px' }}>
@@ -116,7 +117,7 @@ const Login = () => {
               </Typography>
               <TextFieldInput
                 sx={{
-                  marginBottom: '24px',
+                  mb: 3,
                   fontFamily: 'poppins-regular',
                 }}
                 placeholder="example@domain.com"
@@ -131,9 +132,26 @@ const Login = () => {
               />
               <TextFieldInput
                 sx={{
+                  mb: 3,
+                  fontFamily: 'poppins-regular',
+                }}
+                placeholder="username"
+                id="username"
+                name="username"
+                label="Username"
+                value={formik.values.username}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={
+                  formik.touched.username && Boolean(formik.errors.username)
+                }
+                helperText={formik.touched.username && formik.errors.username}
+              />
+              <TextFieldInput
+                sx={{
                   fontFamily: 'roboto-regular',
                 }}
-                placeholder="Enter"
+                placeholder="Enter password"
                 id="password"
                 name="password"
                 label="Password"
@@ -155,22 +173,6 @@ const Login = () => {
                   ),
                 }}
               />
-
-              <Typography
-                mt={1}
-                sx={{
-                  fontFamily: 'roboto-regular',
-                  fontSize: { xs: '12px', sm: '14px' },
-                  lineHeight: '21px',
-                  textAlign: 'right',
-                  textDecoration: 'underline',
-                  color: 'secondary.main',
-                }}
-              >
-                <Link to={ROUTES_URL.FORGOT_PASSWORD}>
-                  <span>Forgot Password? </span>
-                </Link>
-              </Typography>
               <Box sx={{ width: '100%' }}>
                 <ButtonComponent
                   type="submit"
@@ -178,27 +180,26 @@ const Login = () => {
                   size="medium"
                   fullWidth
                   sx={{
-                    marginTop: '24px',
-                    padding: '16px',
+                    mt: 3,
+                    py: 2,
                     fontFamily: 'roboto-medium',
                   }}
                 >
-                  login
+                  Signup
                 </ButtonComponent>
               </Box>
               <Typography
-                mt={1}
+                mt={2}
                 sx={{
                   fontFamily: 'roboto-regular',
-                  fontSize: { xs: '12px', sm: '14px' }, // Responsive font size
+                  fontSize: { xs: '12px', sm: '14px' },
                   lineHeight: '21px',
-                  marginTop: '24px',
                   textAlign: 'center',
                   color: 'secondary.main',
                 }}
               >
-                Don't have an account?{' '}
-                <Link to={ROUTES_URL.SIGNUP}>SIGNUP</Link>
+                Already have an account?{' '}
+                <Link to={ROUTES_URL.LOGIN}>LOGIN</Link>
               </Typography>
             </Stack>
           </Box>
@@ -207,4 +208,4 @@ const Login = () => {
     </Box>
   )
 }
-export default Login
+export default SignUp

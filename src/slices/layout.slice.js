@@ -9,9 +9,12 @@ export const layoutSlice = createSlice({
     sidebarWidth: (state, action) => {
       state.sidebarWidth = action.payload.width;
     },
+    themeUpdate: (state, action) => {
+      state.isTheme = action.payload.isTheme
+    }
   },
 });
 
-export const { sidebarWidth } = layoutSlice.actions;
+export const { sidebarWidth, themeUpdate } = layoutSlice.actions;
 
 export default layoutSlice.reducer;

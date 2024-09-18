@@ -1,0 +1,177 @@
+{
+  "common": {
+    "role": "Role",
+    "all": "All",
+    "super_admin": "Super Administrator",
+    "Administrator": "Administrator",
+    "Accountant": "Accountant",
+    "User": "User",
+    "search": "Search",
+    "delete": "Delete",
+    "user": "User",
+    "active": "Active",
+    "inactive": "Inactive",
+    "save": "Save",
+    "cancel": "Cancel",
+    "myAccount": "My Account",
+    "setting": "Setting",
+    "logout": "Logout",
+    "enterName&Surname":"Enter name and surname",
+    "name&Surname":"name and surname",
+    "headCells": {
+      "name": "Name",
+      "status": "Status"
+    },
+    "placeholder": {
+      "nameSurname": "Enter name & surname",
+      "email": "Enter email",
+      "password": "Enter 8 digit password",
+      "name": "Enter denominazione",
+      "address": "Enter address",
+      "postalCode": "Enter CAP",
+      "city": "Enter city",
+      "province": "Enter province",
+      "vatNumber": "Enter partita I.V.A",
+      "fiscalCode": "Enter fiscal code",
+      "Nota": "Enter Note"
+    }
+  },
+  "authValidation" : {
+    "email" : "Please enter a valid email",
+    "password" : "Password is required",
+    "required":"Please enter a valid email"
+  },
+  "employeeValidation": {
+    "name":"The name is mandatory!",
+    "role":"Role is required!",
+    "telephone":"The role is in high demand!",
+    "tutor":"Tutor required!",
+    "qualification":"Qualification required!",
+    "freshman":"Registration number is required!",
+    "contract":"A contract is required!",
+    "annual-salary":"An annual salary is required!",
+    "start-date":"The start date is mandatory!",
+    "end-date":"End date is mandatory!"
+  },
+  "userValidationAdd":{
+    "name":"The name is mandatory",
+    "email-required":"The email is mandatory",
+    "email-matches":"Please enter a valid email",
+    "role":"The role is mandatory",
+    "password-matches":"The password must contain at least 8 characters, a letter and a number",
+    "password-required":"Password is required"
+  },
+  "userValidationEdit":{
+    "name":"The name is mandatory",
+    "email-matches":"Please enter a valid email",
+    "email-required":"Email is required",
+    "role":"The role is mandatory",
+    "password":"Password is required"
+  },
+  "addAddressValidation":{
+    "name":"The name is mandatory!",
+    "address":"Addresses are required!",
+    "houseNumber":"House number is required!",
+    "telephone":"The telephone is mandatory!",
+    "province":"The province is required!",
+    "nation":"The nation is necessary!"
+  },
+  "addClientValidation":{
+    "name":"The name is mandatory!",
+    "vatCountry":"The Piva Nation is required!",
+    "vatNumber":"VAT is required!",
+    "fiscalCode":"Tax code is required!",
+    "country":"The nation is necessary!",
+    "province":"The province is required!",
+    "address":"The address is required!",
+    "houseNo":"House number is required!",
+    "zipCode":"Postcode required!",
+    "paymentType":"Payment type is required!",
+    "priceList":"Listno is mandatory!",
+    "defaultLabel":"The default label is mandatory!",
+    "language":"Language is required!",
+    "discount":"Discount price list is required!",
+    "discount-max":"Discount not more than 100%"
+  },
+  "forgotPasswordValidation":{
+    "email":"Please enter a valid email",
+    "email-required":"Email is required!"
+  },
+  "resetPasswordValidation":{
+    "email":"Please enter a valid email",
+    "email-required":"Email is required!",
+    "newPassword":"Password is required!",
+    "verifyForgotCode":"Enter the 6-digit code you received on your email!"
+  },
+  "updatePasswordValidation":{
+    "current-password":"Email is required!",
+    "new-password-required":"Password is required",
+    "new-password-min":"Your password is too short.",
+    "confirm-password":"Passwords must match"
+  },
+  "chartOfAccounts":{
+    "name":"The name is mandatory",
+    "code-matches":"Must be a numeric value",
+    "code-required":"The code is mandatory"
+  },
+  "productAddValidation":{
+    "productType":"The product type is mandatory",
+    "barcode":"Barcode required!",
+    "barcodeType":"The barcode type is required",
+    "internalItemCode":"The internal article code is mandatory!",
+    "description":"The product name is mandatory",
+    "choiceOfVATRate":"The choice of the VAT rate field is mandatory",
+    "taxRate-matches":"Must be a numeric value",
+    "taxRate-required":"The tax rate is required!",
+    "withHoldingTax":"Tax withholding is required",
+    "socialSecurityContribution":"The field relating to social security contributions is mandatory",
+    "typeOfTransferOfService":"The service transfer type field is mandatory",
+    "supplierId":"Select the supplier",
+    "currency":"The currency field is mandatory",
+    "purchasePrice":"The unit price field is required",
+    "purchaseVat-matches":"Must be a numeric value",
+    "purchaseVat-required":"VAT is required"
+  },
+  "categoryValidation":{
+    "name":"The category name is mandatory"
+  },
+  "vatRateValidation":{
+    "description":"Description is required",
+    "taxRate-matches":"Must be a numeric value",
+    "taxRate-required":"The tax rate is required!",
+    "natureType":"Nature type is required",
+    "normativeReference":"A Regulatory Reference is required",
+    "vatCode":"VAT code is required",
+    "operationType":"The type of operation is required"
+  },
+  "priceListingValidation":{
+    "name":"The name is mandatory",
+    "currency":"Currency is required"
+  },
+  
+  "bodyOfDocumentValidation":{
+    "productId":"Select the product",
+    "vatRateId":"Select VAT rate",
+    "quantity-min":"Minimum 1 quantity required",
+    "quantity-max":"Maximum quantity 1,000,000.00",
+    "quantity-matches":"Must be a numeric value",
+    "quantity-required":"Document date requested",
+    "unitPrice-min":"Minimum 1 request",
+    "unitPrice-max":"Price not exceeding 1,000,000.00",
+    "unitPrice-required":"The unit price must be requested"
+  },
+  "dataRouteValidation":{
+    "pickedUpDateTime":"Pickup date required",
+    "transportStartDate-min":"The date between the collection date and the delivery date",
+    "transportStartDate-max":"The date between the collection date and the delivery date",
+    "transportStartDate-required":"The Start Date of transportation must be requested",
+    "deliveryDateTime-min":"Delivery date not less than the collection date",
+    "deliveryDateTime-required":"Required delivery date"
+  },
+  "user": {
+    "newUser": "New User",
+    "nameSurname": "Name & Surname",
+    "email": "E-mail",
+    "password": "Password"
+  }
+}

@@ -26,13 +26,14 @@ import { useLocation, Link, Outlet, useNavigate } from 'react-router-dom'
 import BreadCrumbs from '../../components/BreadCrumbs'
 import MenuList from './menu'
 import { useDispatch, useSelector } from 'react-redux'
-import { sidebarWidth } from '../../slices/layout.slice'
+import { sidebarWidth, themeUpdate } from '../../slices/layout.slice'
 import LocalStorageService from '../../helper/localStorage-services'
 import { getProfileInformation, logoutLoggedUser } from '../../middleware/auth'
 import { Toastify } from '../../config/toastify'
 import ProfileUpdate from '../Profile'
 import ROUTES_URL from '../../config/routes'
 import { LOGIN_SUCCESS, roles } from '../../config/constants'
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 const imagePath = process.env.REACT_APP_IMAGE_URL
 const drawerWidth = 320
 
@@ -108,7 +109,7 @@ const Drawer = styled(MuiDrawer, {
 
 function SideBar() {
   const theme = useTheme()
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
   const [path, setPath] = useState('')
   const location = useLocation()
   const dispatch = useDispatch()
@@ -120,16 +121,16 @@ function SideBar() {
 
   const { defaultActiveTab } = MenuList()
 
-  useEffect(() => {
-    if (userId?.id === undefined || userId?.id === null) {
-      navigate(ROUTES_URL.LOGIN)
-    } else {
-      dispatch(getProfileInformation(userId?.id))
-    }
-    if (loginMessage) {
-      Toastify.success(LOGIN_SUCCESS)
-    }
-  }, [loginMessage])
+  // useEffect(() => {
+  //   if (userId?.id === undefined || userId?.id === null) {
+  //     navigate(ROUTES_URL.LOGIN)
+  //   } else {
+  //     dispatch(getProfileInformation(userId?.id))
+  //   }
+  //   if (loginMessage) {
+  //     Toastify.success(LOGIN_SUCCESS)
+  //   }
+  // }, [loginMessage])
 
   useEffect(() => {
     if (open) {
@@ -158,6 +159,14 @@ function SideBar() {
   const handleSetting = () => {
     setAnchorEl(null)
     navigate(ROUTES_URL.SETTINGS)
+  }
+
+  useEffect(() => {
+    dispatch(themeUpdate({isTheme: true}))
+  }, [])
+
+  const handleThemeUpdate= () => {
+    dispatch(themeUpdate({isTheme: !theme}))
   }
 
   const handleLogout = () => {
@@ -194,13 +203,12 @@ function SideBar() {
           position="fixed"
           open={open}
           sx={{
-            background: '#F7F8FA',
             boxShadow: 'none',
           }}
         >
           <Toolbar>
             <IconButton
-              color="inherit"
+              color="text.primary"
               aria-label="open drawer"
               onClick={handleDrawerOpen}
               edge="start"
@@ -209,7 +217,7 @@ function SideBar() {
                 display: open ? 'none' : '',
               }}
             >
-              <MenuIcon sx={{ color: 'primary.main' }} />
+              <MenuIcon />
             </IconButton>
             <Box
               sx={{
@@ -269,10 +277,11 @@ function SideBar() {
                     }}
                   >
                     <Typography
+                      color='primary.main'
+
                       sx={{
                         fontSize: '20px',
                         fontWeight: 600,
-                        color: 'primary.main',
                         lineHeight: 1,
                         fontFamily: 'roboto-bold',
                       }}
@@ -280,13 +289,12 @@ function SideBar() {
                       {user?.name}
                     </Typography>
                     <Typography
+                      color='primary.main'
                       sx={{
                         fontSize: '16px',
-                        color: '#869295',
                         fontFamily: 'roboto-regular',
                       }}
                     >
-                      {/* {user?.role} */}
                       {user?.role && roleMappings[user?.role]?.value}
                     </Typography>
                   </Box>
@@ -351,14 +359,18 @@ function SideBar() {
                     <Avatar /> {t('common.myAccount')}
                   </MenuItem>
                   <Divider />
-
                   <MenuItem onClick={handleSetting}>
                     <ListItemIcon>
                       <Settings fontSize="small" />
                     </ListItemIcon>
                     {t('common.setting')}
                   </MenuItem>
-
+                  <MenuItem onClick={handleThemeUpdate}>
+                    <ListItemIcon>
+                      <DarkModeIcon fontSize="small" />
+                    </ListItemIcon>
+                    Theme
+                  </MenuItem>
                   <MenuItem onClick={handleLogout}>
                     <ListItemIcon>
                       <Logout fontSize="small" />
@@ -396,7 +408,15 @@ function SideBar() {
             }}
           >
             <DrawerHeader>
-             
+              <Box
+                sx={{
+                  mx: 'auto',
+                }}
+              >
+                <Typography sx={{ fontSize: '40px', mx: 'auto', paddingLeft: "8px" }}>
+                  Logo
+                </Typography>
+              </Box>
               <IconButton onClick={handleDrawerClose}>
                 {theme.direction === 'rtl' ? (
                   <ChevronRightIcon />
@@ -425,7 +445,6 @@ function SideBar() {
                   alt={user?.name}
                   src={user?.profilePicture && imagePath + user?.profilePicture}
                 />
-
                 <Typography
                   sx={{
                     fontSize: '20px',
@@ -451,14 +470,14 @@ function SideBar() {
                 fontFamily: 'poppins-regular',
               }}
             >
-              Amministrazione
+              Admin
             </Typography>
             <List sx={{ padding: open ? '16px' : '4px' }}>
               {defaultActiveTab.map((item, index) => (
                 <Link
                   key={index}
                   to={item.path}
-                  style={{ textDecoration: 'none', color: '#000000DE' }}
+                  style={{ textDecoration: 'none' }}
                 >
                   <ListItem
                     disablePadding
@@ -466,7 +485,6 @@ function SideBar() {
                       display: 'block',
                       backgroundColor:
                         path === item.path ? 'primary.main' : 'transparent',
-                      color: path === item.path ? '#fff' : '',
                       borderRadius: 2,
                     }}
                   >
@@ -484,10 +502,9 @@ function SideBar() {
                           minWidth: 0,
                           mr: open ? 3 : 'auto',
                           justifyContent: 'center',
-                          color: path === item.path ? '#fff' : '',
                         }}
                       >
-                        {item.icon}
+                        <Typography  color="text.primary">{item.icon}</Typography>
                       </ListItemIcon>
 
                       <Typography
@@ -497,7 +514,7 @@ function SideBar() {
                           fontFamily: 'poppins-regular',
                         }}
                       >
-                        {item.label}
+                        <Typography  color="text.primary">{item.label}</Typography>
                       </Typography>
                     </ListItemButton>
                   </ListItem>
@@ -511,9 +528,8 @@ function SideBar() {
           component="main"
           sx={{
             flexGrow: 1,
-            mt: 3,
+            px: 3,
             height: 'calc(100vh - 24px)',
-            background: '#F7F8FA',
           }}
         >
           <Outlet />

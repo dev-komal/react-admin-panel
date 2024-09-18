@@ -12,15 +12,14 @@ const MenuList = () => {
   const { t } = useTranslation();
   const defaultActiveTab = [
     {
-      label: t("common.dashboard"),
+      label: "Dashboard",
       path: ROUTES_URL.DASHBOARD,
       icon: <SpaceDashboardIcon />,
     },
     {
-      label: t("common.user"),
-      path: ROUTES_URL.USER,
+      label: "Prducts",
+      path: ROUTES_URL.PRODUCT,
       icon: <AccountCircleIcon />,
-      hidden: loggedUserDetails?.role === rolesList[3].value,
     },
   ];
 

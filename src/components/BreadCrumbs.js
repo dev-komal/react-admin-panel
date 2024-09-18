@@ -9,33 +9,36 @@ function BreadCrumbs() {
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
       <Breadcrumbs aria-label="breadcrumb">
         <Link
-          underline="hover"
-          color="inherit"
+          underline="none"
           to={ROUTES_URL.DASHBOARD}
           style={{
             textDecoration: 'none',
-            color: '#00000080',
             fontFamily: 'roboto-regular',
           }}
         >
-          Home
+          <Typography
+            color="text.primary"
+            underline="none">
+            Home
+          </Typography>
         </Link>
         <Link
           underline="hover"
-          color="inherit"
           href="/material-ui/getting-started/installation/"
           style={{
             textDecoration: 'none',
-            color: '#00000080',
             fontFamily: 'poppins-regular',
           }}
         >
-          Amministrazione
+          <Typography
+            color="text.primary">
+            Admin
+          </Typography>
         </Link>
 
         <Typography
           color="text.primary"
-          style={{
+          sx={{
             textTransform: 'capitalize',
             fontFamily: 'roboto-regular',
           }}

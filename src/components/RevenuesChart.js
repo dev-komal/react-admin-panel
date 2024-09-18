@@ -1,28 +1,10 @@
-import React from "react";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
+import React from 'react'
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-);
+import { Line } from 'react-chartjs-2'
 
-export const options = {
+const options = {
   responsive: true,
+  backgroundColor: "rgba(75,192,192,1)",
   maintainAspectRatio: false,
   elements: {
     point: {
@@ -75,37 +57,25 @@ export const options = {
   },
 };
 
-const labels = ["2019", "2020", "2021", "2022", "2023"];
-
 const data = {
-  labels: labels,
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
   datasets: [
     {
-      label: "Costi",
-      data: [25, 3, 80, 200, 40],
-      fill: false,
-      borderColor: "#2D9CDB",
-      tension: 0.3,
+      label: 'First dataset',
+      data: [33, 53, 85, 41, 44, 65],
+      fill: true,
+      backgroundColor: 'rgba(75,192,192,0.2)',
+      borderColor: 'rgba(75,192,192,1)',
     },
     {
-      label: "Ricavi",
-      data: [50, 125, 110, 70, 150],
+      label: 'Second dataset',
+      data: [33, 25, 35, 51, 54, 76],
       fill: false,
-      borderColor: "#90BE6D",
-      tension: 0.3,
-    },
-    {
-      label: "Utile",
-      data: [80, 15, 45, 70, 250],
-      fill: false,
-      borderColor: "#F9C74F",
-      tension: 0.3,
+      borderColor: '#742774',
     },
   ],
-};
-
-function LineChart() {
-  return <Line options={options} data={data} />;
 }
 
-export default LineChart;
+export default function RevenuesChart() {
+  return <Line options={options} data={data} />
+}

@@ -1,5 +1,5 @@
 import { Box, Card, CardContent, Typography } from "@mui/material";
-import { Euro } from "@mui/icons-material";
+import { AttachMoney } from "@mui/icons-material";
 import InfoIcon from "@mui/icons-material/Info";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
@@ -10,9 +10,10 @@ export const PriceCard = (props) => {
     <Card
       sx={{
         backgroundColor: `${props.bgColor}`,
-        color: "#fff",
+        color: "secondary.main",
         borderRadius: "16px",
         height: "168px",
+        width: "100%"
       }}
     >
       <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -33,7 +34,7 @@ export const PriceCard = (props) => {
               marginRight: 1,
             }}
           >
-            <Euro />
+            <AttachMoney />
           </Box>
           <Typography
             component="div"

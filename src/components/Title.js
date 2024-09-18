@@ -7,11 +7,10 @@ const Title = ({ title }) => {
         flexGrow: 1,
         mt: 2,
         py: 3,
-        backgroundColor: "#F7F8FA",
-        fontFamily: "poppins-semi-bold",
+        // backgroundColor: "#F7F8FA",
       }}
     >
-      <Typography variant="h5" style={{ textTransform: "capitalize" }}>
+      <Typography variant="h5" sx={{ textTransform: "capitalize",   fontFamily: "poppins-semi-bold", }}>
         {title}
       </Typography>
     </Box>

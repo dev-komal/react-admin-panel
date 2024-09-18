@@ -10,6 +10,9 @@ const useAuthTranslations = () => {
       .email(t("authValidation.email"))
       .matches(/@[^.]*\./)
       .required(t("authValidation.required")),
+      username: yup
+      .string()
+      .required("username required"),
     password: yup.string().required(t("authValidation.password")),
   });
 
@@ -47,45 +50,41 @@ const useAuthTranslations = () => {
     password: yup.string().required(t("userValidationEdit.password")),
   });
 
- 
+  const forgotPasswordValidation = yup.object({
+    email: yup
+      .string()
+      .email(t("forgotPasswordValidation.email"))
+      .required(t("forgotPasswordValidation.email-required")),
+  });
 
- 
+  const resetPasswordValidation = yup.object({
+    email: yup
+      .string()
+      .email(t("resetPasswordValidation.email"))
+      .required(t("resetPasswordValidation.email-required")),
+    newPassword: yup
+      .string()
+      .required(t("resetPasswordValidation.newPassword")),
+    verifyForgotCode: yup
+      .string("")
+      .required(t("resetPasswordValidation.verifyForgotCode")),
+  });
 
-  // const forgotPasswordValidation = yup.object({
-  //   email: yup
-  //     .string()
-  //     .email(t("forgotPasswordValidation.email"))
-  //     .required(t("forgotPasswordValidation.email-required")),
-  // });
-
-  // const resetPasswordValidation = yup.object({
-  //   email: yup
-  //     .string()
-  //     .email(t("resetPasswordValidation.email"))
-  //     .required(t("resetPasswordValidation.email-required")),
-  //   newPassword: yup
-  //     .string()
-  //     .required(t("resetPasswordValidation.newPassword")),
-  //   verifyForgotCode: yup
-  //     .string("")
-  //     .required(t("resetPasswordValidation.verifyForgotCode")),
-  // });
-
-  // const updatePasswordValidation = yup.object({
-  //   current_password: yup
-  //     .string()
-  //     .required(t("updatePasswordValidation.current-password")),
-  //   new_password: yup
-  //     .string()
-  //     .required(t("updatePasswordValidation.new-password-required"))
-  //     .min(5, t("updatePasswordValidation.new-password-min")),
-  //   confirm_password: yup
-  //     .string()
-  //     .oneOf(
-  //       [yup.ref("new_password")],
-  //       t("updatePasswordValidation.confirm-password"),
-  //     ),
-  // });
+  const updatePasswordValidation = yup.object({
+    current_password: yup
+      .string()
+      .required(t("updatePasswordValidation.current-password")),
+    new_password: yup
+      .string()
+      .required(t("updatePasswordValidation.new-password-required"))
+      .min(5, t("updatePasswordValidation.new-password-min")),
+    confirm_password: yup
+      .string()
+      .oneOf(
+        [yup.ref("new_password")],
+        t("updatePasswordValidation.confirm-password"),
+      ),
+  });
 
  
 
@@ -94,9 +93,9 @@ const useAuthTranslations = () => {
     authValidation,
     userValidationAdd,
     userValidationEdit,
-    // forgotPasswordValidation,
-    // resetPasswordValidation,
-    // updatePasswordValidation,
+    forgotPasswordValidation,
+    resetPasswordValidation,
+    updatePasswordValidation,
   };
 };
 
